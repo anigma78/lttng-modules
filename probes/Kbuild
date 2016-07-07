@@ -2,7 +2,8 @@ TOP_LTTNG_MODULES_DIR := $(shell dirname $(lastword $(MAKEFILE_LIST)))/..
 
 include $(TOP_LTTNG_MODULES_DIR)/Makefile.ABI.workarounds
 
-ccflags-y += -I$(TOP_LTTNG_MODULES_DIR)
+ccflags-y += -I$(TOP_LTTNG_MODULES_DIR) -I$(PXD_TRACE_DIR)
+#ccflags-y += -I/home/blake/git/go/src/github.com/px-fuse
 
 obj-$(CONFIG_LTTNG) += lttng-probe-sched.o
 obj-$(CONFIG_LTTNG) += lttng-probe-irq.o
@@ -11,6 +12,7 @@ obj-$(CONFIG_LTTNG) += lttng-probe-kmem.o
 obj-$(CONFIG_LTTNG) += lttng-probe-module.o
 obj-$(CONFIG_LTTNG) += lttng-probe-power.o
 obj-$(CONFIG_LTTNG) += lttng-probe-statedump.o
+obj-$(CONFIG_LTTNG) += lttng-probe-pxd.o
 
 ifneq ($(CONFIG_KVM),)
   obj-$(CONFIG_LTTNG) += lttng-probe-kvm.o

@@ -2,6 +2,7 @@ TOP_LTTNG_MODULES_DIR := $(shell dirname $(lastword $(MAKEFILE_LIST)))/..
 
 include $(TOP_LTTNG_MODULES_DIR)/Makefile.ABI.workarounds
 
+PXD_TRACE_DIR = $(TOP_LTTNG_MODULES_DIR)/../px_fuse
 ccflags-y += -I$(TOP_LTTNG_MODULES_DIR) -I$(PXD_TRACE_DIR)
 
 obj-$(CONFIG_LTTNG) += lttng-probe-sched.o

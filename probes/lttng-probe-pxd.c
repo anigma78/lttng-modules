@@ -5,7 +5,10 @@
 
 #define LTTNG_PACKAGE_BUILD
 #define CREATE_TRACE_POINTS
+#undef TRACE_INCLUDE_PATH
+#undef TRACE_INCLUDE_FILE
 #define TRACE_INCLUDE_PATH ../instrumentation/events/lttng-module
+#define TRACE_INCLUDE_FILE pxd
 
 #include "../instrumentation/events/lttng-module/pxd.h"
 

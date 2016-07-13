@@ -25,7 +25,7 @@ ifneq ($(KERNELRELEASE),)
   #
   ifneq ($(wildcard $(lttng_check_linux_version)),)
     ifneq ($(wildcard $(lttng_check_generated_linux_version)),)
-      $(error Duplicate version.h files found in $(lttng_check_linux_version) and $(lttng_check_generated_linux_version). Consider running make distclean on your kernel, or removing the stale $(lttng_check_linux_version) file)
+      $(shell mv $(lttng_check_linux_version) $(lttng_check_linux_version).old)
     endif
   endif
 

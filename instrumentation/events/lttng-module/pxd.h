@@ -45,16 +45,15 @@ LTTNG_TRACEPOINT_EVENT(
 	pxd_request,
 	TP_PROTO(
 		uint64_t reqctr, uint64_t unique, uint32_t size, uint64_t off,
-		uint32_t minor, uint32_t flags, bool qfn),
-	TP_ARGS(reqctr, unique, size, off, minor, flags, qfn),
+		uint32_t minor, uint32_t flags),
+	TP_ARGS(reqctr, unique, size, off, minor, flags),
 	TP_FIELDS(
 		ctf_integer(uint64_t, reqctr_field, reqctr)
 		ctf_integer(uint64_t, unique_field, unique)
 		ctf_integer(uint32_t, size_field, size)
 		ctf_integer(uint64_t, off_field, off)
 		ctf_integer(uint32_t, minor_field, minor)
-		ctf_integer_hex(uint32_t, flags_field, flags)
-		ctf_integer(uint32_t, qfn_field, qfn)))
+		ctf_integer_hex(uint32_t, flags_field, flags)))
 
 LTTNG_TRACEPOINT_EVENT(
 	pxd_reply,
